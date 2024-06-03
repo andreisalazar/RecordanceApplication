@@ -15,9 +15,10 @@ namespace RecordanceApp
         public SignUpForm()
         {
             InitializeComponent();
+            passwordTextBox.PasswordChar = '*';
         }
 
-        NavigationForm navigationform = new NavigationForm();
+       // NavigationForm navigationform = new NavigationForm();
 
         private void signupButton_Click(object sender, EventArgs e)
         {
@@ -29,7 +30,7 @@ namespace RecordanceApp
                     , "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 usernameTextBox.Focus();
             }
-            else if (usernameTextBox.Text.Length > 50)
+            else if (usernameTextBox.Text.Length < 6 || usernameTextBox.Text.Length > 50)
             {
                 // Too long or short username
                 MessageBox.Show("Username should be at least 6 to 50 characters only."
@@ -80,6 +81,14 @@ namespace RecordanceApp
                     , "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 firstnameTextBox.Focus();
             }
+            else if (firstnameTextBox.Text.Length < 2)
+            {
+                // Too short password or too long password
+                MessageBox.Show("First name should be 2 characters long."
+                    , "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                firstnameTextBox.Focus();
+                firstnameTextBox.SelectAll();
+            }
             else if (double.TryParse(firstnameTextBox.Text, out double firstnameParsed))
             {
                 // Invalid format of first name (e.g. number)
@@ -96,6 +105,14 @@ namespace RecordanceApp
                 MessageBox.Show("Kindly enter your last name."
                     , "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 lastnameTextBox.Focus();
+            }
+            else if (lastnameTextBox.Text.Length < 2)
+            {
+                // Too short password or too long password
+                MessageBox.Show("Last name should be 2 characters long."
+                    , "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lastnameTextBox.Focus();
+                lastnameTextBox.SelectAll();
             }
             else if (double.TryParse(firstnameTextBox.Text, out double lastnameParsed))
             {
@@ -134,18 +151,18 @@ namespace RecordanceApp
          
                 PublicData.PublicUsername = usernameTextBox.Text;
                 PublicData.PublicFullname = firstnameTextBox.Text + " " + lastnameTextBox.Text;
-                proceedToNavigation();
+                proceedToSignin();
             }
         }
 
-        void proceedToNavigation()
+        void proceedToSignin()
         {
-
+            SignInForm signinform = new SignInForm();
             File.AppendAllText(PublicData.usernameDB, usernameTextBox.Text + Environment.NewLine);
             File.AppendAllText(PublicData.passwordDB, passwordTextBox.Text + Environment.NewLine);
             File.AppendAllText(PublicData.fullnameDB, firstnameTextBox.Text + " " + lastnameTextBox.Text + Environment.NewLine);
             this.Hide();
-            navigationform.Show();
+            signinform.Show();
         }
     }
 }

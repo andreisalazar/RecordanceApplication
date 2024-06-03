@@ -24,55 +24,140 @@ namespace RecordanceApp
 
         private void NavigationForm_Load(object sender, EventArgs e)
         {
-            Panel coursesContainerPanel = new Panel();
-            coursesContainerPanel.Size = new Size(930, 589);
-            coursesContainerPanel.Location = new Point(240, 152);
-            coursesContainerPanel.BackColor = Color.WhiteSmoke;
-            coursesContainerPanel.AutoScroll = true;
-            Label titlelabel = new Label();
-            titlelabel.Location = new Point(8, 7);
-
-            Label coursesContainerlabel = new Label();
-            coursesContainerlabel.Location = new Point(270, 170);
-            coursesContainerlabel.Text = "Your courses: ";
-            coursesContainerlabel.Font = new Font("Arial Black", 18, FontStyle.Bold);
-            coursesContainerlabel.AutoSize = true;
-            coursesContainerlabel.BackColor = Color.WhiteSmoke;
-
-
-            Panel addCoursePanel = new Panel();
-            addCoursePanel.Location = new Point(29, 130);
-            addCoursePanel.Size = new Size(871, 135);
-            Label addCourseLabel = new Label();
-            addCourseLabel.Text = "Course name: ";
-            addCourseLabel.Font = new Font("Georgia", 11, FontStyle.Regular);
-            addCourseLabel.AutoSize = true;
-            addCourseLabel.BackColor = Color.WhiteSmoke;
-            TextBox addCourseTextBox = new TextBox();
-            addCourseTextBox.Size = new Size(352, 27);
-            addCourseTextBox.Location = new Point(27, 66);
-            Button addCourseButton = new Button();
-            addCourseButton.Size = new Size(162, 43);
-            addCourseButton.Location = new Point(673, 43);
-            addCourseButton.FlatStyle = FlatStyle.Flat;
-            addCourseButton.BackColor = Color.Maroon;
-            addCourseButton.ForeColor = Color.White;
-
-
-
             welcomeLabel.Text = "Welcome, " + PublicData.PublicFullname + "!";
-
-            this.Controls.Add(titlelabel);
-            this.Controls.Add(coursesContainerlabel);
-
-            this.Controls.Add(addCourseLabel);
-            this.Controls.Add(addCourseTextBox);
-            this.Controls.Add(addCoursePanel);
-
-            this.Controls.Add(coursesContainerPanel);
-
         }
 
+        private void viewsectionbuttonOne_Click(object sender, EventArgs e)
+        {
+            if (coursenameOne.Text == "")
+            {
+                // Empty coursename
+                MessageBox.Show("Kindly enter your course name."
+                    , "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                coursenameOne.Focus();
+            }
+            else if (coursecodeOne.Text == "")
+            {
+                // Empty coursecode
+                MessageBox.Show("Kindly enter your course code."
+                    , "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                coursecodeOne.Focus();
+            }
+            else if (double.TryParse(coursenameOne.Text, out double coursenameOneParsed))
+            {
+                // Invalid format of course name (e.g. number)
+                MessageBox.Show("Course name cannot be a number."
+                    , "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                coursenameOne.Text = "";
+            }
+            else if (coursenameOne.Text.Length < 8 || coursenameOne.Text.Length > 50)
+            {
+                // Too short course name or too long course name
+                MessageBox.Show("Course name should be 8 characters long."
+                    , "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                coursenameOne.Focus();
+                coursenameOne.SelectAll();
+            }
+            else
+            {
+                PublicData.PublicCourseNameOne = coursenameOne.Text.ToUpper();
+                PublicData.PublicCourseCodeOne = coursecodeOne.Text.ToUpper();
 
+                coursenameOne.Text = PublicData.PublicCourseNameOne;
+                coursenameOne.ReadOnly = true;
+
+                coursecodeOne.Text = PublicData.PublicCourseCodeOne;
+                coursecodeOne.ReadOnly = true;
+            }
+        }
+
+        private void viewsectionbuttonTwo_Click(object sender, EventArgs e)
+        {
+            if (coursenameTwo.Text == "")
+            {
+                // Empty coursename
+                MessageBox.Show("Kindly enter your course name."
+                    , "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                coursenameTwo.Focus();
+            }
+            else if (coursecodeTwo.Text == "")
+            {
+                // Empty coursecode
+                MessageBox.Show("Kindly enter your course code."
+                    , "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                coursecodeTwo.Focus();
+            }
+            else if (double.TryParse(coursenameTwo.Text, out double coursenameTwoParsed))
+            {
+                // Invalid format of course name (e.g. number)
+                MessageBox.Show("Course name cannot be a number."
+                    , "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                coursenameTwo.Text = "";
+            }
+            else if (coursenameTwo.Text.Length < 8 || coursenameTwo.Text.Length > 50)
+            {
+                // Too short course name or too long course name
+                MessageBox.Show("Course name should be 8 characters long."
+                    , "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                coursenameTwo.Focus();
+                coursenameTwo.SelectAll();
+            }
+            else
+            {
+
+                PublicData.PublicCourseNameTwo = coursenameTwo.Text.ToUpper();
+                PublicData.PublicCourseCodeTwo = coursecodeTwo.Text.ToUpper();
+
+                coursenameTwo.Text = PublicData.PublicCourseNameTwo;
+                coursenameTwo.ReadOnly = true;
+
+                coursecodeTwo.Text = PublicData.PublicCourseCodeTwo;
+                coursecodeTwo.ReadOnly = true;
+            }
+        }
+
+        private void viewsectionbuttonThree_Click(object sender, EventArgs e)
+        {
+            if (coursenameThree.Text == "")
+            {
+                // Empty coursename
+                MessageBox.Show("Kindly enter your course name."
+                    , "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                coursenameThree.Focus();
+            }
+            else if (coursecodeOne.Text == "")
+            {
+                // Empty coursecode
+                MessageBox.Show("Kindly enter your course code."
+                    , "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                coursecodeThree.Focus();
+            }
+            else if (double.TryParse(coursenameThree.Text, out double coursenameThreeParsed))
+            {
+                // Invalid format of course name (e.g. number)
+                MessageBox.Show("Course name cannot be a number."
+                    , "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                coursenameThree.Text = "";
+            }
+            else if (coursenameThree.Text.Length < 8 || coursenameThree.Text.Length > 50)
+            {
+                // Too short course name or too long course name
+                MessageBox.Show("Course name should be 8 characters long."
+                    , "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                coursenameThree.Focus();
+                coursenameThree.SelectAll();
+            }
+            else
+            {
+                PublicData.PublicCourseNameThree = coursenameThree.Text.ToUpper();
+                PublicData.PublicCourseCodeThree = coursecodeThree.Text.ToUpper();
+
+                coursenameThree.Text = PublicData.PublicCourseNameThree;
+                coursenameThree.ReadOnly = true;
+
+                coursecodeThree.Text = PublicData.PublicCourseCodeThree;
+                coursecodeThree.ReadOnly = true;
+            }
+        }
     }
 }

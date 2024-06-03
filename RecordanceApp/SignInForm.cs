@@ -16,6 +16,7 @@ namespace RecordanceApp
         public SignInForm()
         {
             InitializeComponent();
+            passwordTextBox.PasswordChar = '*'; 
         }
 
         ForgotPasswordForm forgotpasswordform = new ForgotPasswordForm();
@@ -26,8 +27,7 @@ namespace RecordanceApp
         public static string[] usernameList = File.ReadAllLines(PublicData.usernameDB);
         public static string[] passwordList = File.ReadAllLines(PublicData.passwordDB);
         public static  string[] fullnameList = File.ReadAllLines(PublicData.fullnameDB);
-  
-
+        
         private void forgotpasswordButton_Click(object sender, EventArgs e)
         {
             forgotpasswordform.ShowDialog();
