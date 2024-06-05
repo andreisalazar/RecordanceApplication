@@ -8,6 +8,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace RecordanceApp
 {
@@ -23,10 +24,6 @@ namespace RecordanceApp
         SignUpForm signupform = new SignUpForm();
         NavigationForm navigationform = new NavigationForm();
 
-      
-        public static string[] usernameList = File.ReadAllLines(PublicData.usernameDB);
-        public static string[] passwordList = File.ReadAllLines(PublicData.passwordDB);
-        public static  string[] fullnameList = File.ReadAllLines(PublicData.fullnameDB);
         
         private void forgotpasswordButton_Click(object sender, EventArgs e)
         {
@@ -35,7 +32,12 @@ namespace RecordanceApp
 
         public void signinButton_Click(object sender, EventArgs e)
         {
-           int usernameIndex = Array.IndexOf(usernameList, usernameTextBox.Text);
+
+            PublicData.usernameList = File.ReadAllLines(PublicData.usernameDB);
+            PublicData.passwordList = File.ReadAllLines(PublicData.passwordDB);
+            PublicData.fullnameList = File.ReadAllLines(PublicData.fullnameDB);
+
+            PublicData.usernameIndex = Array.IndexOf(PublicData.usernameList, usernameTextBox.Text);
 
             if (usernameTextBox.Text == "")
             {
@@ -43,8 +45,8 @@ namespace RecordanceApp
                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 usernameTextBox.Focus();
             }
-            else if (!usernameList.Contains(usernameTextBox.Text)
-                || usernameIndex == -1)
+            else if (!PublicData.usernameList.Contains(usernameTextBox.Text)
+                || PublicData.usernameIndex == -1)
             {
                 // If the prompted username is not found on the username text file
                 MessageBox.Show("Account not found.",
@@ -53,20 +55,21 @@ namespace RecordanceApp
                 usernameTextBox.SelectAll();
                 passwordTextBox.Text = "";
             }
-            else if (passwordList[usernameIndex] == passwordTextBox.Text)
+            else if (PublicData.passwordList[PublicData.usernameIndex] == passwordTextBox.Text)
             {
                 // If the index of the password list is similar to the index of the text found, then the password
                 // and username matches
 
-                PublicData.PublicUsername = usernameList[usernameIndex];
-                PublicData.PublicFullname = fullnameList[usernameIndex];
+                PublicData.PublicUsername = PublicData.usernameList[PublicData.usernameIndex];
+                PublicData.PublicFullname = PublicData.fullnameList[PublicData.usernameIndex];
+               
                 MessageBox.Show("Public Fullname (SignInForm):" + PublicData.PublicFullname);
                 proceedToNavigationForm();
             }
-            else if ((passwordList[usernameIndex] != passwordTextBox.Text) || (passwordTextBox.Text == "")
+            else if ((PublicData.passwordList[PublicData.usernameIndex] != passwordTextBox.Text) || (passwordTextBox.Text == "")
 )
             {
-                MessageBox.Show("An error occured. The password might be incorrect password or empty." + passwordList[usernameIndex].ToString(),
+                MessageBox.Show("An error occured. The password might be incorrect password or empty." + PublicData.passwordList[PublicData.usernameIndex].ToString(),
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 passwordTextBox.Focus();
                 passwordTextBox.SelectAll();

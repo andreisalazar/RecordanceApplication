@@ -16,48 +16,60 @@ namespace RecordanceApp
         {
             InitializeComponent();
 
-        }
+            coursenameOne.ReadOnly = false;
+            coursenameTwo.ReadOnly = false;
 
+            
+            if(PublicData.usernameIndex != -1)
+            {
+                //If there is a content, then display it
+                if(courseNameOneList.Length > PublicData.usernameIndex && 
+                    !string.IsNullOrEmpty(courseNameOneList[PublicData.usernameIndex]))
+                {
+                    coursenameOne.Text = courseNameOneList[PublicData.usernameIndex];
+                    coursecodeOne.Text = courseCodeOneList[PublicData.usernameIndex];
+                    coursenameOne.ReadOnly = true;
+                    coursecodeOne.ReadOnly = true;
+                }
+                //If there is a content, then display it
+                if(courseNameTwoList.Length > PublicData.usernameIndex &&
+                    !string.IsNullOrEmpty(courseNameTwoList[PublicData.usernameIndex]))
+                {
+                    coursenameTwo.Text = courseNameTwoList[PublicData.usernameIndex];
+                    coursecodeTwo.Text = courseCodeTwoList[PublicData.usernameIndex];
+                    coursenameTwo.ReadOnly = true;
+                    coursecodeTwo.ReadOnly = true;
+                }
+            
+            }
+            
+        }
+        SectionsCourseOne sectionsformcourseOne = new SectionsCourseOne();
+        SectionsCourseTwo sectionsformCourseTwo = new SectionsCourseTwo();
         RequirementsAndSyllabusCourseOne rsCourseOne = new RequirementsAndSyllabusCourseOne();
         RequirementsAndSyllabusCourseTwo rsCourseTwo = new RequirementsAndSyllabusCourseTwo();
-
-        public static string[] usernameList = File.ReadAllLines(PublicData.usernameDB);
-        public static string[] passwordList = File.ReadAllLines(PublicData.passwordDB);
-        public static string[] fullnameList = File.ReadAllLines(PublicData.fullnameDB);
 
         //Read Course Name text files
         public static string[] courseNameOneList = File.ReadAllLines(PublicData.courseNameOneDB);
         public static string[] courseNameTwoList = File.ReadAllLines(PublicData.courseNameTwoDB);
-        public static string[] courseNameThreeList = File.ReadAllLines(PublicData.courseNameThreeDB);
+
 
         //Read Course Code text files
         public static string[] courseCodeOneList = File.ReadAllLines(PublicData.courseCodeOneDB);
         public static string[] courseCodeTwoList = File.ReadAllLines(PublicData.courseCodeTwoDB);
-        public static string[] courseCodeThreeList = File.ReadAllLines(PublicData.courseCodeThreeDB);
+
 
         private void NavigationForm_Load(object sender, EventArgs e)
         {
             welcomeLabel.Text = "Welcome, " + PublicData.PublicFullname + "!";
         }
 
-        public static int usernameIndex = Array.IndexOf(usernameList, PublicData.PublicUsername);
+      //  public static int usernameIndex = Array.IndexOf(usernameList, PublicData.PublicUsername);
 
         private void viewsectionbuttonOne_Click(object sender, EventArgs e)
         {
-
-
-            if (usernameIndex != -1)
-            {
-                //Set the course name based on the index of username
-                coursenameOne.Text = courseNameOneList[usernameIndex];
-                //Make the course name Read Only
-                coursenameOne.ReadOnly = true;
-                //Set the course code based on the index of username
-                coursecodeOne.Text = courseCodeOneList[usernameIndex];
-                //Make the course name Read Only
-                coursecodeOne.ReadOnly = true;
-            }
-            else if (coursenameOne.Text == "")
+            
+            if (coursenameOne.Text == "")
             {
                 // Empty coursename
                 MessageBox.Show("Kindly enter your course name."
@@ -86,7 +98,7 @@ namespace RecordanceApp
                 coursenameOne.Focus();
                 coursenameOne.SelectAll();
             }
-            else
+            else if (!coursenameOne.ReadOnly && !coursecodeOne.ReadOnly)
             {
                 PublicData.PublicCourseNameOne = coursenameOne.Text.ToUpper();
                 PublicData.PublicCourseCodeOne = coursecodeOne.Text.ToUpper();
@@ -107,22 +119,18 @@ namespace RecordanceApp
                 MessageBox.Show("Course Name One: " + coursenameOne + Environment.NewLine +
                    "Course Code One: " + PublicData.PublicCourseCodeOne + "is successfully added!");
             }
+            else 
+            {
+                this.Hide();
+                sectionsformcourseOne.Show();
+            }
+            
         }
 
         private void viewsectionbuttonTwo_Click(object sender, EventArgs e)
         {
-            if (usernameIndex != -1)
-            {
-                //Set the course name based on the index of username
-                coursenameTwo.Text = courseNameTwoList[usernameIndex];
-                //Make the course name Read Only
-                coursenameTwo.ReadOnly = true;
-                //Set the course code based on the index of username
-                coursecodeTwo.Text = courseCodeTwoList[usernameIndex];
-                //Make the course name Read Only
-                coursecodeTwo.ReadOnly = true;
-            }
-            else if (coursenameTwo.Text == "")
+            
+            if (coursenameTwo.Text == "")
             {
                 // Empty coursename
                 MessageBox.Show("Kindly enter your course name."
@@ -151,28 +159,33 @@ namespace RecordanceApp
                 coursenameTwo.Focus();
                 coursenameTwo.SelectAll();
             }
+            else if (!coursenameTwo.ReadOnly && !coursecodeTwo.ReadOnly)
+            {
+             PublicData.PublicCourseNameTwo = coursenameTwo.Text.ToUpper();
+             PublicData.PublicCourseCodeTwo = coursecodeTwo.Text.ToUpper();
+
+             coursenameTwo.Text = PublicData.PublicCourseNameTwo;
+             coursenameTwo.ReadOnly = true;
+
+             coursecodeTwo.Text = PublicData.PublicCourseCodeTwo;
+             coursecodeTwo.ReadOnly = true;
+
+                    //Append the course name
+            File.AppendAllText(PublicData.courseNameTwoDB, PublicData.PublicCourseNameTwo +
+                        Environment.NewLine);
+                    //Append the course code
+            File.AppendAllText(PublicData.courseCodeTwoDB, PublicData.PublicCourseCodeTwo +
+                        Environment.NewLine);
+                    //Notify the user
+            MessageBox.Show("Course Name Two: " + coursenameTwo + Environment.NewLine +
+                       "Course Code Two: " + PublicData.PublicCourseCodeTwo + "is successfully added!");
+            }
             else
             {
-
-                PublicData.PublicCourseNameTwo = coursenameTwo.Text.ToUpper();
-                PublicData.PublicCourseCodeTwo = coursecodeTwo.Text.ToUpper();
-
-                coursenameTwo.Text = PublicData.PublicCourseNameTwo;
-                coursenameTwo.ReadOnly = true;
-
-                coursecodeTwo.Text = PublicData.PublicCourseCodeTwo;
-                coursecodeTwo.ReadOnly = true;
-
-                //Append the course name
-                File.AppendAllText(PublicData.courseNameTwoDB, PublicData.PublicCourseNameTwo +
-                    Environment.NewLine);
-                //Append the course code
-                File.AppendAllText(PublicData.courseCodeTwoDB, PublicData.PublicCourseCodeTwo +
-                    Environment.NewLine);
-                //Notify the user
-                MessageBox.Show("Course Name Two: " + coursenameTwo + Environment.NewLine +
-                   "Course Code Two: " + PublicData.PublicCourseCodeTwo + "is successfully added!");
+                this.Hide();
+                sectionsformCourseTwo.Show();
             }
+            
         }
 
         private void viewSyllabusAndReqButtonOne_Click(object sender, EventArgs e)

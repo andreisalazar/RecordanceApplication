@@ -13,6 +13,7 @@ namespace RecordanceApp
         //File Path
         public static string folder = @"C:\Users\pochx\Desktop\Recordance Application\RecordanceApp\Databases";
 
+
         //Public variables
         public static string PublicUsername = "";
         public static string PublicFullname = "";
@@ -27,6 +28,7 @@ namespace RecordanceApp
         public static string PublicCourseCodeTwo = "";
         public static string PublicCourseCodeThree = "";
 
+      
 
         //Textfile databases for account details
         public static string usernameDB =  Path.Combine(folder, "usernameDB.txt");
@@ -36,12 +38,12 @@ namespace RecordanceApp
         //Textfile databases for course names details
         public static string courseNameOneDB = Path.Combine(folder, "courseNameOne.txt");
         public static string courseNameTwoDB = Path.Combine(folder, "courseNameTwo.txt");
-        public static string courseNameThreeDB = Path.Combine(folder, "courseNameThree.txt");
+
 
         //Textfile databases for course codes details
         public static string courseCodeOneDB = Path.Combine(folder, "courseCodeOne.txt");
         public static string courseCodeTwoDB = Path.Combine(folder, "courseCodeTwo.txt");
-        public static string courseCodeThreeDB = Path.Combine(folder, "courseCodeThree.txt");
+
 
         //Textfile databases for section details
         public static string courseOneSectionOneDB = Path.Combine(folder, "courseOneSectionOne.txt");
@@ -50,12 +52,13 @@ namespace RecordanceApp
         public static string courseTwoSectionOneDB = Path.Combine(folder, "courseTwoSectionOne.txt");
         public static string courseTwoSectionTwoDB = Path.Combine(folder, "courseTwoSectionTwo.txt");
 
-        public static string courseThreeSectionOneDB = Path.Combine(folder, "courseThreeSectionThree.txt");
-        public static string courseThreeSectionTwoDB = Path.Combine(folder, "courseThreeSectionThree.txt");
+        //Lists
+        public static string[] usernameList = File.ReadAllLines(usernameDB);
+        public static string[] fullnameList = File.ReadAllLines(fullnameDB);
+        public static string[] passwordList = File.ReadAllLines(PublicData.passwordDB);
 
-        
-
-      
-
+        //Username Index
+        public static int usernameIndex;
+       
     }
 }

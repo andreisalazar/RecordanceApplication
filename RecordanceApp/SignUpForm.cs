@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace RecordanceApp
 {
@@ -18,7 +19,7 @@ namespace RecordanceApp
             passwordTextBox.PasswordChar = '*';
         }
 
-       // NavigationForm navigationform = new NavigationForm();
+       NavigationForm navigationform = new NavigationForm();
 
         private void signupButton_Click(object sender, EventArgs e)
         {
@@ -148,9 +149,10 @@ namespace RecordanceApp
             }
             else
             {
-         
+             
                 PublicData.PublicUsername = usernameTextBox.Text;
-                PublicData.PublicFullname = firstnameTextBox.Text + " " + lastnameTextBox.Text;
+                PublicData.PublicFullname = firstnameTextBox.Text + " " + lastnameTextBox.Text; 
+             
                 proceedToSignin();
             }
         }
@@ -158,11 +160,20 @@ namespace RecordanceApp
         void proceedToSignin()
         {
             SignInForm signinform = new SignInForm();
-            File.AppendAllText(PublicData.usernameDB, usernameTextBox.Text + Environment.NewLine);
-            File.AppendAllText(PublicData.passwordDB, passwordTextBox.Text + Environment.NewLine);
-            File.AppendAllText(PublicData.fullnameDB, firstnameTextBox.Text + " " + lastnameTextBox.Text + Environment.NewLine);
-            this.Hide();
-            signinform.Show();
+            if(!PublicData.usernameList.Contains(usernameTextBox.Text))
+            {
+               
+                File.AppendAllText(PublicData.usernameDB, usernameTextBox.Text + Environment.NewLine);
+                File.AppendAllText(PublicData.passwordDB, passwordTextBox.Text + Environment.NewLine);
+                File.AppendAllText(PublicData.fullnameDB, firstnameTextBox.Text + " " + lastnameTextBox.Text + Environment.NewLine);
+                this.Hide();
+                signinform.Show();
+            }
+            else
+            {
+                MessageBox.Show("This username is taken. Please make a new one.",
+                   "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
