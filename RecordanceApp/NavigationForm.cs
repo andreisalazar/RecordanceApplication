@@ -121,7 +121,6 @@ namespace RecordanceApp
             }
             else 
             {
-                this.Hide();
                 sectionsformcourseOne.Show();
             }
             
@@ -182,7 +181,6 @@ namespace RecordanceApp
             }
             else
             {
-                this.Hide();
                 sectionsformCourseTwo.Show();
             }
             

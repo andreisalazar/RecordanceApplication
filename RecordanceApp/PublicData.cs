@@ -28,6 +28,11 @@ namespace RecordanceApp
         public static string PublicCourseCodeTwo = "";
         public static string PublicCourseCodeThree = "";
 
+        //Variables for Sections
+        public static string PublicCourseOneSectionOne = "";
+        public static string PublicCourseOneSectionTwo = "";
+        public static string PublicCourseTwoSectionOne = "";
+        public static string PublicCourseTwoSectionTwo = "";
       
 
         //Textfile databases for account details
@@ -55,7 +60,19 @@ namespace RecordanceApp
         //Lists
         public static string[] usernameList = File.ReadAllLines(usernameDB);
         public static string[] fullnameList = File.ReadAllLines(fullnameDB);
-        public static string[] passwordList = File.ReadAllLines(PublicData.passwordDB);
+        public static string[] passwordList = File.ReadAllLines(passwordDB);
+
+        public static string[] courseNameOneList = File.ReadAllLines(courseNameOneDB);
+        public static string[] courseCodeOneList = File.ReadAllLines(courseCodeOneDB);
+        public static string[] courseNameTwoList = File.ReadAllLines(courseNameTwoDB);
+        public static string[] courseCodeTwoList = File.ReadAllLines(courseNameTwoDB);
+
+        //Textfile Array
+        public static string[] courseOneSectionOneTextFiles = File.ReadAllLines(courseTwoSectionOneDB);
+        public static string[] courseOneSectionTwoTextFiles;
+
+        public static string[] courseTwoSectionOneTextFiles;
+        public static string[] courseTwoSectionTwoTextFiles;
 
         //Username Index
         public static int usernameIndex;

@@ -15,6 +15,13 @@ namespace RecordanceApp
         public SectionsCourseTwo()
         {
             InitializeComponent();
+            titleLabel.Text = PublicData.courseNameTwoList[PublicData.usernameIndex]
+                + PublicData.courseCodeTwoList[PublicData.usernameIndex];
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }
