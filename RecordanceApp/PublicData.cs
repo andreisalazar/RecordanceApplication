@@ -12,7 +12,7 @@ namespace RecordanceApp
 
         //File Path  
         //public static string folder = @"C:\Users\pochx\Desktop\Recordance Application\RecordanceApp\Databases";
-       public static string folder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "RecordanceApp");
+        public static string folder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "RecordanceApp");
         static PublicData()
         {
             Directory.CreateDirectory(folder);

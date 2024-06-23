@@ -27,7 +27,7 @@ namespace RecordanceApp
             MessageBox.Show(PublicData.usernameIndex.ToString());
             MessageBox.Show(PublicData.PublicUsername);
 
-            PublicData.PublicCourseNameOne = PublicData.courseNameOneList[PublicData.usernameIndex];
+            
             titleLabel.Text = "Requirements - " + PublicData.PublicCourseNameOne;
 
             dataGridView1.ReadOnly = true;
