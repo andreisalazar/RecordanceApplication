@@ -32,14 +32,12 @@
             panel1 = new Panel();
             titleLabel = new Label();
             panel2 = new Panel();
-            gradeComputationButtonSectionOne = new Button();
             viewStudentsButtonSectionOne = new Button();
             label2 = new Label();
             scheduleOneCourseOneTextBox = new TextBox();
             label7 = new Label();
             sectionOneCourseOneTextBox = new TextBox();
             panel3 = new Panel();
-            gradeComputationButtonSectionTwo = new Button();
             viewStudentsButtonSectionTwo = new Button();
             label1 = new Label();
             scheduleTwoCourseOneTextBox = new TextBox();
@@ -60,46 +58,32 @@
             panel1.Controls.Add(titleLabel);
             panel1.Location = new Point(6, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1164, 129);
+            panel1.Size = new Size(1164, 64);
             panel1.TabIndex = 30;
             // 
             // titleLabel
             // 
             titleLabel.AutoSize = true;
-            titleLabel.Font = new Font("Arial Black", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point);
-            titleLabel.Location = new Point(22, 31);
+            titleLabel.Font = new Font("Arial Black", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            titleLabel.Location = new Point(6, 11);
             titleLabel.Name = "titleLabel";
-            titleLabel.Size = new Size(576, 62);
+            titleLabel.Size = new Size(366, 40);
             titleLabel.TabIndex = 0;
             titleLabel.Text = "Course One - Sections:";
             // 
             // panel2
             // 
             panel2.BackColor = SystemColors.Control;
-            panel2.Controls.Add(gradeComputationButtonSectionOne);
             panel2.Controls.Add(viewStudentsButtonSectionOne);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(scheduleOneCourseOneTextBox);
             panel2.Controls.Add(label7);
             panel2.Controls.Add(sectionOneCourseOneTextBox);
-            panel2.Location = new Point(12, 230);
+            panel2.Location = new Point(12, 121);
             panel2.Name = "panel2";
-            panel2.Size = new Size(648, 208);
+            panel2.Size = new Size(650, 255);
             panel2.TabIndex = 31;
             panel2.Paint += panel2_Paint;
-            // 
-            // gradeComputationButtonSectionOne
-            // 
-            gradeComputationButtonSectionOne.BackColor = Color.Maroon;
-            gradeComputationButtonSectionOne.FlatStyle = FlatStyle.Flat;
-            gradeComputationButtonSectionOne.Font = new Font("Arial Black", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            gradeComputationButtonSectionOne.ForeColor = SystemColors.ButtonHighlight;
-            gradeComputationButtonSectionOne.Location = new Point(391, 144);
-            gradeComputationButtonSectionOne.Name = "gradeComputationButtonSectionOne";
-            gradeComputationButtonSectionOne.Size = new Size(219, 43);
-            gradeComputationButtonSectionOne.TabIndex = 37;
-            gradeComputationButtonSectionOne.Text = "Grade Computation";
-            gradeComputationButtonSectionOne.UseVisualStyleBackColor = false;
             // 
             // viewStudentsButtonSectionOne
             // 
@@ -107,7 +91,7 @@
             viewStudentsButtonSectionOne.FlatStyle = FlatStyle.Flat;
             viewStudentsButtonSectionOne.Font = new Font("Arial Black", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             viewStudentsButtonSectionOne.ForeColor = SystemColors.ButtonHighlight;
-            viewStudentsButtonSectionOne.Location = new Point(157, 144);
+            viewStudentsButtonSectionOne.Location = new Point(163, 164);
             viewStudentsButtonSectionOne.Name = "viewStudentsButtonSectionOne";
             viewStudentsButtonSectionOne.Size = new Size(175, 43);
             viewStudentsButtonSectionOne.TabIndex = 36;
@@ -119,7 +103,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Georgia", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(22, 88);
+            label2.Location = new Point(28, 123);
             label2.Name = "label2";
             label2.Size = new Size(89, 21);
             label2.TabIndex = 35;
@@ -128,7 +112,7 @@
             // scheduleOneCourseOneTextBox
             // 
             scheduleOneCourseOneTextBox.BorderStyle = BorderStyle.FixedSingle;
-            scheduleOneCourseOneTextBox.Location = new Point(155, 85);
+            scheduleOneCourseOneTextBox.Location = new Point(161, 120);
             scheduleOneCourseOneTextBox.Name = "scheduleOneCourseOneTextBox";
             scheduleOneCourseOneTextBox.Size = new Size(455, 27);
             scheduleOneCourseOneTextBox.TabIndex = 34;
@@ -137,7 +121,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Georgia", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(24, 38);
+            label7.Location = new Point(30, 73);
             label7.Name = "label7";
             label7.Size = new Size(127, 21);
             label7.TabIndex = 33;
@@ -146,7 +130,7 @@
             // sectionOneCourseOneTextBox
             // 
             sectionOneCourseOneTextBox.BorderStyle = BorderStyle.FixedSingle;
-            sectionOneCourseOneTextBox.Location = new Point(157, 35);
+            sectionOneCourseOneTextBox.Location = new Point(163, 70);
             sectionOneCourseOneTextBox.Name = "sectionOneCourseOneTextBox";
             sectionOneCourseOneTextBox.Size = new Size(453, 27);
             sectionOneCourseOneTextBox.TabIndex = 32;
@@ -154,29 +138,15 @@
             // panel3
             // 
             panel3.BackColor = SystemColors.Control;
-            panel3.Controls.Add(gradeComputationButtonSectionTwo);
             panel3.Controls.Add(viewStudentsButtonSectionTwo);
             panel3.Controls.Add(label1);
             panel3.Controls.Add(scheduleTwoCourseOneTextBox);
             panel3.Controls.Add(label3);
             panel3.Controls.Add(sectionTwoCourseOneTextBox);
-            panel3.Location = new Point(12, 457);
+            panel3.Location = new Point(12, 412);
             panel3.Name = "panel3";
-            panel3.Size = new Size(648, 208);
+            panel3.Size = new Size(650, 255);
             panel3.TabIndex = 32;
-            // 
-            // gradeComputationButtonSectionTwo
-            // 
-            gradeComputationButtonSectionTwo.BackColor = Color.Maroon;
-            gradeComputationButtonSectionTwo.FlatStyle = FlatStyle.Flat;
-            gradeComputationButtonSectionTwo.Font = new Font("Arial Black", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            gradeComputationButtonSectionTwo.ForeColor = SystemColors.ButtonHighlight;
-            gradeComputationButtonSectionTwo.Location = new Point(399, 137);
-            gradeComputationButtonSectionTwo.Name = "gradeComputationButtonSectionTwo";
-            gradeComputationButtonSectionTwo.Size = new Size(219, 43);
-            gradeComputationButtonSectionTwo.TabIndex = 43;
-            gradeComputationButtonSectionTwo.Text = "Grade Computation";
-            gradeComputationButtonSectionTwo.UseVisualStyleBackColor = false;
             // 
             // viewStudentsButtonSectionTwo
             // 
@@ -231,7 +201,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(673, 162);
+            pictureBox1.Location = new Point(685, 111);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(496, 573);
             pictureBox1.TabIndex = 33;
@@ -254,10 +224,10 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Arial Black", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(12, 168);
+            label4.Font = new Font("Arial Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(12, 79);
             label4.Name = "label4";
-            label4.Size = new Size(239, 40);
+            label4.Size = new Size(169, 28);
             label4.TabIndex = 38;
             label4.Text = "Your Sections:";
             // 
@@ -274,7 +244,8 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "SectionsCourseOne";
-            Text = "SectionsCourseOne";
+            Text = "Recordance";
+            Load += SectionsCourseOne_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
@@ -297,10 +268,8 @@
         private TextBox scheduleOneCourseOneTextBox;
         private Label label7;
         private TextBox sectionOneCourseOneTextBox;
-        private Button gradeComputationButtonSectionOne;
         private Button viewStudentsButtonSectionOne;
         private Button backButton;
-        private Button gradeComputationButtonSectionTwo;
         private Button viewStudentsButtonSectionTwo;
         private Label label1;
         private TextBox scheduleTwoCourseOneTextBox;

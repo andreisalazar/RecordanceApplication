@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignUpForm));
             panel1 = new Panel();
-            panel2 = new Panel();
             passwordTextBox = new TextBox();
             label7 = new Label();
             lastnameTextBox = new TextBox();
@@ -43,6 +42,7 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
+            panel2 = new Panel();
             pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -51,6 +51,7 @@
             // 
             // panel1
             // 
+            panel1.BackColor = SystemColors.Control;
             panel1.Controls.Add(passwordTextBox);
             panel1.Controls.Add(label7);
             panel1.Controls.Add(lastnameTextBox);
@@ -67,14 +68,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(492, 734);
             panel1.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            panel2.Controls.Add(pictureBox1);
-            panel2.Location = new Point(519, 7);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(651, 734);
-            panel2.TabIndex = 1;
             // 
             // passwordTextBox
             // 
@@ -192,6 +185,14 @@
             label1.TabIndex = 19;
             label1.Text = "RecordAnce";
             // 
+            // panel2
+            // 
+            panel2.Controls.Add(pictureBox1);
+            panel2.Location = new Point(519, 7);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(651, 734);
+            panel2.TabIndex = 1;
+            // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
@@ -210,7 +211,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "SignUpForm";
-            Text = "Sign-up";
+            Text = "Recordance";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);

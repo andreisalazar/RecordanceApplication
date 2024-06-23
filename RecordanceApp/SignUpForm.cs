@@ -16,14 +16,18 @@ namespace RecordanceApp
         public SignUpForm()
         {
             InitializeComponent();
+            this.ControlBox = false;
             passwordTextBox.PasswordChar = '*';
         }
 
-       NavigationForm navigationform = new NavigationForm();
+        PublicData data = new PublicData();
+
 
         private void signupButton_Click(object sender, EventArgs e)
         {
-            /* Username Validation */
+
+            /*Username Validation */
+
             if (usernameTextBox.Text == "")
             {
                 // Empty Username
@@ -75,6 +79,7 @@ namespace RecordanceApp
             }
 
             /* Firstname Validation */
+
             else if (firstnameTextBox.Text == "")
             {
                 // Empty first name
@@ -100,6 +105,7 @@ namespace RecordanceApp
 
 
             /* Lastname Validation */
+
             else if (lastnameTextBox.Text == "")
             {
                 //Empty last name
@@ -115,7 +121,7 @@ namespace RecordanceApp
                 lastnameTextBox.Focus();
                 lastnameTextBox.SelectAll();
             }
-            else if (double.TryParse(firstnameTextBox.Text, out double lastnameParsed))
+            else if (double.TryParse(lastnameTextBox.Text, out double lastnameParsed))
             {
                 // Invalid format of first name (e.g. number)
                 MessageBox.Show("Last name cannot be a number."
@@ -124,6 +130,7 @@ namespace RecordanceApp
             }
 
             /* Password Validation */
+
             else if (passwordTextBox.Text == "")
             {
                 // Empty password
@@ -149,10 +156,10 @@ namespace RecordanceApp
             }
             else
             {
-             
+
                 PublicData.PublicUsername = usernameTextBox.Text;
-                PublicData.PublicFullname = firstnameTextBox.Text + " " + lastnameTextBox.Text; 
-             
+                PublicData.PublicFullname = firstnameTextBox.Text + " " + lastnameTextBox.Text;
+
                 proceedToSignin();
             }
         }
@@ -160,9 +167,9 @@ namespace RecordanceApp
         void proceedToSignin()
         {
             SignInForm signinform = new SignInForm();
-            if(!PublicData.usernameList.Contains(usernameTextBox.Text))
+            if (!PublicData.usernameList.Contains(usernameTextBox.Text))
             {
-               
+
                 File.AppendAllText(PublicData.usernameDB, usernameTextBox.Text + Environment.NewLine);
                 File.AppendAllText(PublicData.passwordDB, passwordTextBox.Text + Environment.NewLine);
                 File.AppendAllText(PublicData.fullnameDB, firstnameTextBox.Text + " " + lastnameTextBox.Text + Environment.NewLine);

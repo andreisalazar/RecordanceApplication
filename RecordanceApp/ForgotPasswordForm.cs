@@ -15,6 +15,7 @@ namespace RecordanceApp
         public ForgotPasswordForm()
         {
             InitializeComponent();
+            this.ControlBox = false;
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -22,11 +23,12 @@ namespace RecordanceApp
             this.Hide();
         }
 
-       
+
         NavigationForm navigationform = new NavigationForm();
 
         private void changepasswordButton_Click(object sender, EventArgs e)
         {
+
             if (usernameTextBox.Text == "")
             {
                 // Empty Username
@@ -78,6 +80,7 @@ namespace RecordanceApp
             }
 
             /* New password */
+
             else if (newpasswordTextBox.Text == "")
             {
                 // Empty password
@@ -103,6 +106,7 @@ namespace RecordanceApp
             }
 
             /*  Confirm password */
+
             else if (confirmpasswordTextBox.Text == "")
             {
                 // Empty password
@@ -120,11 +124,13 @@ namespace RecordanceApp
             }
             else
             {
-               proceedToSignIn();
+                proceedToSignIn();
             }
+
 
             void proceedToSignIn()
             {
+
                 string[] password = File.ReadAllLines(PublicData.passwordDB);
                 string[] usernameList = File.ReadAllLines(PublicData.usernameDB);
                 int usernameIndex;
@@ -135,8 +141,8 @@ namespace RecordanceApp
                     {
                         password[usernameIndex] = confirmpasswordTextBox.Text;
                         File.WriteAllLines(PublicData.passwordDB, password);
-                        MessageBox.Show("Password is successfullt changed.", "Error",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Password is successfully changed.", "Information",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Hide();
                     }
                 }
@@ -147,7 +153,10 @@ namespace RecordanceApp
                     usernameTextBox.Focus();
                     usernameTextBox.SelectAll();
                 }
+
             }
+
         }
+
     }
 }

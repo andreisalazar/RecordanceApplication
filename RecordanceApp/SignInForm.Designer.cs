@@ -205,7 +205,8 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "SignInForm";
-            Text = "SignInForm";
+            Text = "Recordance";
+            Load += SignInForm_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);

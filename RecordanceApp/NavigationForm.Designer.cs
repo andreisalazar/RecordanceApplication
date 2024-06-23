@@ -34,6 +34,7 @@
             pictureBox1 = new PictureBox();
             label1 = new Label();
             panel1 = new Panel();
+            viewSyllabusButtonTwo = new Button();
             viewSyllabusAndReqsButtonTwo = new Button();
             viewsectionbuttonTwo = new Button();
             label3 = new Label();
@@ -41,6 +42,7 @@
             label4 = new Label();
             coursenameTwo = new TextBox();
             panel3 = new Panel();
+            viewSyllabusButtonOne = new Button();
             viewSyllabusAndReqButtonOne = new Button();
             viewsectionbuttonOne = new Button();
             label2 = new Label();
@@ -55,28 +57,30 @@
             // 
             // panel2
             // 
+            panel2.BackColor = SystemColors.Control;
             panel2.Controls.Add(welcomeLabel);
             panel2.Location = new Point(11, 7);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1164, 132);
+            panel2.Size = new Size(1164, 74);
             panel2.TabIndex = 1;
             // 
             // welcomeLabel
             // 
             welcomeLabel.AutoSize = true;
-            welcomeLabel.Font = new Font("Arial Black", 36F, FontStyle.Bold, GraphicsUnit.Point);
-            welcomeLabel.Location = new Point(3, 25);
+            welcomeLabel.Font = new Font("Arial Black", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            welcomeLabel.Location = new Point(21, 20);
             welcomeLabel.Name = "welcomeLabel";
-            welcomeLabel.Size = new Size(375, 85);
+            welcomeLabel.Size = new Size(175, 40);
             welcomeLabel.TabIndex = 0;
             welcomeLabel.Text = "Welcome, ";
+            welcomeLabel.Click += welcomeLabel_Click;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(14, 155);
+            pictureBox1.Location = new Point(14, 101);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(320, 570);
+            pictureBox1.Size = new Size(320, 624);
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
             // 
@@ -84,7 +88,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Arial Black", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(345, 155);
+            label1.Location = new Point(345, 84);
             label1.Name = "label1";
             label1.Size = new Size(241, 42);
             label1.TabIndex = 29;
@@ -93,16 +97,31 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.Control;
+            panel1.Controls.Add(viewSyllabusButtonTwo);
             panel1.Controls.Add(viewSyllabusAndReqsButtonTwo);
             panel1.Controls.Add(viewsectionbuttonTwo);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(coursecodeTwo);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(coursenameTwo);
-            panel1.Location = new Point(345, 441);
+            panel1.Location = new Point(350, 445);
             panel1.Name = "panel1";
-            panel1.Size = new Size(825, 206);
+            panel1.Size = new Size(825, 280);
             panel1.TabIndex = 30;
+            // 
+            // viewSyllabusButtonTwo
+            // 
+            viewSyllabusButtonTwo.BackColor = Color.Maroon;
+            viewSyllabusButtonTwo.FlatStyle = FlatStyle.Flat;
+            viewSyllabusButtonTwo.Font = new Font("Arial Black", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            viewSyllabusButtonTwo.ForeColor = SystemColors.ButtonHighlight;
+            viewSyllabusButtonTwo.Location = new Point(573, 170);
+            viewSyllabusButtonTwo.Name = "viewSyllabusButtonTwo";
+            viewSyllabusButtonTwo.Size = new Size(185, 43);
+            viewSyllabusButtonTwo.TabIndex = 35;
+            viewSyllabusButtonTwo.Text = "View Syllabus";
+            viewSyllabusButtonTwo.UseVisualStyleBackColor = false;
+            viewSyllabusButtonTwo.Click += viewSyllabusButtonTwo_Click;
             // 
             // viewSyllabusAndReqsButtonTwo
             // 
@@ -110,11 +129,11 @@
             viewSyllabusAndReqsButtonTwo.FlatStyle = FlatStyle.Flat;
             viewSyllabusAndReqsButtonTwo.Font = new Font("Arial Black", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             viewSyllabusAndReqsButtonTwo.ForeColor = SystemColors.ButtonHighlight;
-            viewSyllabusAndReqsButtonTwo.Location = new Point(334, 136);
+            viewSyllabusAndReqsButtonTwo.Location = new Point(332, 170);
             viewSyllabusAndReqsButtonTwo.Name = "viewSyllabusAndReqsButtonTwo";
-            viewSyllabusAndReqsButtonTwo.Size = new Size(335, 43);
+            viewSyllabusAndReqsButtonTwo.Size = new Size(226, 43);
             viewSyllabusAndReqsButtonTwo.TabIndex = 34;
-            viewSyllabusAndReqsButtonTwo.Text = "View Syllabus and Requirements";
+            viewSyllabusAndReqsButtonTwo.Text = "View Requirements";
             viewSyllabusAndReqsButtonTwo.UseVisualStyleBackColor = false;
             viewSyllabusAndReqsButtonTwo.Click += viewSyllabusAndReqsButtonTwo_Click;
             // 
@@ -124,9 +143,9 @@
             viewsectionbuttonTwo.FlatStyle = FlatStyle.Flat;
             viewsectionbuttonTwo.Font = new Font("Arial Black", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             viewsectionbuttonTwo.ForeColor = SystemColors.ButtonHighlight;
-            viewsectionbuttonTwo.Location = new Point(148, 136);
+            viewsectionbuttonTwo.Location = new Point(146, 170);
             viewsectionbuttonTwo.Name = "viewsectionbuttonTwo";
-            viewsectionbuttonTwo.Size = new Size(156, 43);
+            viewsectionbuttonTwo.Size = new Size(174, 43);
             viewsectionbuttonTwo.TabIndex = 32;
             viewsectionbuttonTwo.Text = "View Sections";
             viewsectionbuttonTwo.UseVisualStyleBackColor = false;
@@ -136,7 +155,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Georgia", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(13, 82);
+            label3.Location = new Point(11, 116);
             label3.Name = "label3";
             label3.Size = new Size(118, 21);
             label3.TabIndex = 31;
@@ -145,7 +164,7 @@
             // coursecodeTwo
             // 
             coursecodeTwo.BorderStyle = BorderStyle.FixedSingle;
-            coursecodeTwo.Location = new Point(146, 79);
+            coursecodeTwo.Location = new Point(144, 113);
             coursecodeTwo.Name = "coursecodeTwo";
             coursecodeTwo.Size = new Size(614, 27);
             coursecodeTwo.TabIndex = 30;
@@ -154,7 +173,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Georgia", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(15, 32);
+            label4.Location = new Point(13, 66);
             label4.Name = "label4";
             label4.Size = new Size(125, 21);
             label4.TabIndex = 29;
@@ -163,7 +182,7 @@
             // coursenameTwo
             // 
             coursenameTwo.BorderStyle = BorderStyle.FixedSingle;
-            coursenameTwo.Location = new Point(148, 29);
+            coursenameTwo.Location = new Point(146, 63);
             coursenameTwo.Name = "coursenameTwo";
             coursenameTwo.Size = new Size(612, 27);
             coursenameTwo.TabIndex = 28;
@@ -171,16 +190,31 @@
             // panel3
             // 
             panel3.BackColor = SystemColors.Control;
+            panel3.Controls.Add(viewSyllabusButtonOne);
             panel3.Controls.Add(viewSyllabusAndReqButtonOne);
             panel3.Controls.Add(viewsectionbuttonOne);
             panel3.Controls.Add(label2);
             panel3.Controls.Add(coursecodeOne);
             panel3.Controls.Add(label7);
             panel3.Controls.Add(coursenameOne);
-            panel3.Location = new Point(345, 209);
+            panel3.Location = new Point(350, 129);
             panel3.Name = "panel3";
-            panel3.Size = new Size(825, 206);
+            panel3.Size = new Size(825, 280);
             panel3.TabIndex = 32;
+            // 
+            // viewSyllabusButtonOne
+            // 
+            viewSyllabusButtonOne.BackColor = Color.Maroon;
+            viewSyllabusButtonOne.FlatStyle = FlatStyle.Flat;
+            viewSyllabusButtonOne.Font = new Font("Arial Black", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            viewSyllabusButtonOne.ForeColor = SystemColors.ButtonHighlight;
+            viewSyllabusButtonOne.Location = new Point(585, 186);
+            viewSyllabusButtonOne.Name = "viewSyllabusButtonOne";
+            viewSyllabusButtonOne.Size = new Size(185, 43);
+            viewSyllabusButtonOne.TabIndex = 34;
+            viewSyllabusButtonOne.Text = "View Syllabus";
+            viewSyllabusButtonOne.UseVisualStyleBackColor = false;
+            viewSyllabusButtonOne.Click += viewSyllabusButtonOne_Click;
             // 
             // viewSyllabusAndReqButtonOne
             // 
@@ -188,11 +222,11 @@
             viewSyllabusAndReqButtonOne.FlatStyle = FlatStyle.Flat;
             viewSyllabusAndReqButtonOne.Font = new Font("Arial Black", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             viewSyllabusAndReqButtonOne.ForeColor = SystemColors.ButtonHighlight;
-            viewSyllabusAndReqButtonOne.Location = new Point(334, 130);
+            viewSyllabusAndReqButtonOne.Location = new Point(344, 186);
             viewSyllabusAndReqButtonOne.Name = "viewSyllabusAndReqButtonOne";
-            viewSyllabusAndReqButtonOne.Size = new Size(335, 43);
+            viewSyllabusAndReqButtonOne.Size = new Size(226, 43);
             viewSyllabusAndReqButtonOne.TabIndex = 33;
-            viewSyllabusAndReqButtonOne.Text = "View Syllabus and Requirements";
+            viewSyllabusAndReqButtonOne.Text = "View Requirements";
             viewSyllabusAndReqButtonOne.UseVisualStyleBackColor = false;
             viewSyllabusAndReqButtonOne.Click += viewSyllabusAndReqButtonOne_Click;
             // 
@@ -202,9 +236,9 @@
             viewsectionbuttonOne.FlatStyle = FlatStyle.Flat;
             viewsectionbuttonOne.Font = new Font("Arial Black", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             viewsectionbuttonOne.ForeColor = SystemColors.ButtonHighlight;
-            viewsectionbuttonOne.Location = new Point(148, 130);
+            viewsectionbuttonOne.Location = new Point(158, 186);
             viewsectionbuttonOne.Name = "viewsectionbuttonOne";
-            viewsectionbuttonOne.Size = new Size(156, 43);
+            viewsectionbuttonOne.Size = new Size(174, 43);
             viewsectionbuttonOne.TabIndex = 32;
             viewsectionbuttonOne.Text = "View Sections";
             viewsectionbuttonOne.UseVisualStyleBackColor = false;
@@ -214,7 +248,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Georgia", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(13, 82);
+            label2.Location = new Point(23, 138);
             label2.Name = "label2";
             label2.Size = new Size(118, 21);
             label2.TabIndex = 31;
@@ -223,7 +257,7 @@
             // coursecodeOne
             // 
             coursecodeOne.BorderStyle = BorderStyle.FixedSingle;
-            coursecodeOne.Location = new Point(146, 79);
+            coursecodeOne.Location = new Point(156, 135);
             coursecodeOne.Name = "coursecodeOne";
             coursecodeOne.Size = new Size(614, 27);
             coursecodeOne.TabIndex = 30;
@@ -232,7 +266,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Georgia", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(15, 32);
+            label7.Location = new Point(25, 88);
             label7.Name = "label7";
             label7.Size = new Size(125, 21);
             label7.TabIndex = 29;
@@ -241,7 +275,7 @@
             // coursenameOne
             // 
             coursenameOne.BorderStyle = BorderStyle.FixedSingle;
-            coursenameOne.Location = new Point(148, 29);
+            coursenameOne.Location = new Point(158, 85);
             coursenameOne.Name = "coursenameOne";
             coursenameOne.Size = new Size(612, 27);
             coursenameOne.TabIndex = 28;
@@ -259,7 +293,7 @@
             Controls.Add(pictureBox1);
             Controls.Add(panel2);
             Name = "NavigationForm";
-            Text = "Navigation Form";
+            Text = "Recordance";
             Load += NavigationForm_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
@@ -292,5 +326,7 @@
         private Button viewsectionbuttonOne;
         private Button viewSyllabusAndReqsButtonTwo;
         private Button viewSyllabusAndReqButtonOne;
+        private Button viewSyllabusButtonTwo;
+        private Button viewSyllabusButtonOne;
     }
 }

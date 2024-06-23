@@ -189,7 +189,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "ForgotPasswordForm";
-            Text = "ForgotPasswordForm";
+            Text = "Recordance";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);

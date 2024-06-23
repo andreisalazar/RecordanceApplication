@@ -1,15 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics.Eventing.Reader;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace RecordanceApp
+﻿namespace RecordanceApp
 {
     public partial class SectionsCourseOne : Form
     {
@@ -18,8 +7,7 @@ namespace RecordanceApp
         public SectionsCourseOne()
         {
             InitializeComponent();
-            titleLabel.Text = PublicData.courseNameOneList[PublicData.usernameIndex]
-                + " - " + PublicData.courseCodeOneList[PublicData.usernameIndex];
+            this.ControlBox = false;
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -44,7 +32,7 @@ namespace RecordanceApp
             {
                 MessageBox.Show("Kindly enter your schedule.", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-                scheduleOneCourseOneTextBox.Focus();    
+                scheduleOneCourseOneTextBox.Focus();
             }
             else if (double.TryParse(scheduleOneCourseOneTextBox.Text, out double scheduleSectionOne))
             {
@@ -53,24 +41,106 @@ namespace RecordanceApp
                 scheduleOneCourseOneTextBox.Focus();
                 scheduleOneCourseOneTextBox.Text = "";
             }
+            else if (sectionOneCourseOneTextBox.ReadOnly == false)
+            {
+                //Assign the public variables
+                PublicData.PublicCourseOneSectionOne = sectionOneCourseOneTextBox.Text.ToUpper();
+                PublicData.PublicCourseOneSectionOneSched = scheduleOneCourseOneTextBox.Text.ToUpper();
+                //Append the course name and schedule
+                File.AppendAllText(PublicData.courseOneSectionOneNamesDB, sectionOneCourseOneTextBox.Text.ToUpper() + Environment.NewLine);
+                File.AppendAllText(PublicData.courseOneSectionOneDBTXT, sectionOneCourseOneTextBox.Text.ToUpper() + ".txt" + Environment.NewLine);
+                File.AppendAllText(PublicData.courseOneSectionOneSchedDB, scheduleOneCourseOneTextBox.Text.ToUpper() + Environment.NewLine);
+
+                sectionOneCourseOneTextBox.ReadOnly = true;
+                scheduleOneCourseOneTextBox.ReadOnly = true;
+            }
             else
             {
+                PublicData.PublicCourseOneSectionOne = sectionOneCourseOneTextBox.Text.ToUpper();
                 addstudentsCourseOneSectionOne.Show();
-                PublicData.PublicCourseOneSectionOne = sectionOneCourseOneTextBox.Text;
-                //Append the text in the Course One Section One DB 
-                createATextFile(PublicData.courseOneSectionOneDB,PublicData.PublicCourseOneSectionOne);
             }
         }
 
         private void viewStudentsButtonSectionTwo_Click(object sender, EventArgs e)
         {
-            addstudentsCourseOneSectionTwo.Show();
+            if (sectionTwoCourseOneTextBox.Text == "")
+            {
+                MessageBox.Show("Kindly enter your section name.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                sectionTwoCourseOneTextBox.Focus();
+            }
+            else if (scheduleTwoCourseOneTextBox.Text == "")
+            {
+                MessageBox.Show("Kindly enter your schedule.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                scheduleTwoCourseOneTextBox.Focus();
+            }
+            else if (double.TryParse(scheduleTwoCourseOneTextBox.Text, out double scheduleSectionTwo))
+            {
+                MessageBox.Show("Invalid input! Change your schedule in alphanumeric format.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                scheduleTwoCourseOneTextBox.Focus();
+                scheduleTwoCourseOneTextBox.Text = "";
+            }
+            else if (sectionTwoCourseOneTextBox.ReadOnly == false)
+            {
+                //Assign the public variables
+                PublicData.PublicCourseOneSectionTwo = sectionTwoCourseOneTextBox.Text.ToUpper();
+                PublicData.PublicCourseOneSectionTwoSched = scheduleTwoCourseOneTextBox.Text.ToUpper();
+                //Append the coursename and schedule
+                File.AppendAllText(PublicData.courseOneSectionTwoNamesDB, sectionTwoCourseOneTextBox.Text.ToUpper() + Environment.NewLine);
+                File.AppendAllText(PublicData.courseOneSectionTwoDBTXT, sectionTwoCourseOneTextBox.Text.ToUpper() + ".txt" + Environment.NewLine);
+                File.AppendAllText(PublicData.courseOneSectionTwoSchedDB, scheduleTwoCourseOneTextBox.Text.ToUpper() + Environment.NewLine);
+                sectionTwoCourseOneTextBox.ReadOnly = true;
+                scheduleTwoCourseOneTextBox.ReadOnly = true;
+            }
+            else
+            {
+                PublicData.PublicCourseOneSectionOne = sectionTwoCourseOneTextBox.Text.ToUpper();
+                addstudentsCourseOneSectionTwo.Show();
+            }
         }
 
-        public void createATextFile(string file, string text)
+        private void SectionsCourseOne_Load(object sender, EventArgs e)
         {
-            File.AppendAllText(file, text + ".txt");
-            MessageBox.Show(text + ".txt" + " is succesfully created!");
+            titleLabel.Text = PublicData.PublicCourseNameOne
+              + " - " + PublicData.PublicCourseCodeOne;
+
+            if (PublicData.courseOneSectionOneNameList.Length > PublicData.usernameIndex
+                && !string.IsNullOrEmpty(PublicData.courseOneSectionOneNameList[PublicData.usernameIndex]))
+            {
+                loadSectionOne();
+            }
+            if (PublicData.courseOneSectionTwoNameList.Length > PublicData.usernameIndex
+          && !string.IsNullOrEmpty(PublicData.courseOneSectionTwoNameList[PublicData.usernameIndex]))
+            {
+                loadSectionTwo();
+            }
+        }
+
+
+        public void loadSectionOne()
+        {
+            sectionOneCourseOneTextBox.Text = PublicData.courseOneSectionOneNameList[PublicData.usernameIndex].ToUpper();
+            scheduleOneCourseOneTextBox.Text = PublicData.courseOneSectionOneSchedOneList[PublicData.usernameIndex].ToUpper();
+            sectionOneCourseOneTextBox.ReadOnly = true;
+            scheduleOneCourseOneTextBox.ReadOnly = true;
+
+            PublicData.PublicCourseOneSectionOne = sectionOneCourseOneTextBox.Text;
+        }
+
+        public void loadSectionTwo()
+        {
+            PublicData.PublicCourseOneSectionTwo = PublicData.courseOneSectionTwoNameList[PublicData.usernameIndex].ToUpper();
+            PublicData.PublicCourseOneSectionTwoSched = PublicData.courseOneSectionTwoSchedTwoList[PublicData.usernameIndex].ToUpper();
+
+            sectionTwoCourseOneTextBox.Text = PublicData.courseOneSectionTwoNameList[PublicData.usernameIndex].ToUpper();
+            scheduleTwoCourseOneTextBox.Text = PublicData.courseOneSectionTwoSchedTwoList[PublicData.usernameIndex].ToUpper();
+
+            sectionTwoCourseOneTextBox.ReadOnly = true;
+            scheduleTwoCourseOneTextBox.ReadOnly = true;
+
+            PublicData.PublicCourseOneSectionTwo = sectionTwoCourseOneTextBox.Text;
         }
     }
 }

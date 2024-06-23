@@ -17,14 +17,14 @@ namespace RecordanceApp
         public SignInForm()
         {
             InitializeComponent();
-            passwordTextBox.PasswordChar = '*'; 
+            passwordTextBox.PasswordChar = '*';
+            this.ControlBox = false;
         }
 
         ForgotPasswordForm forgotpasswordform = new ForgotPasswordForm();
         SignUpForm signupform = new SignUpForm();
         NavigationForm navigationform = new NavigationForm();
 
-        
         private void forgotpasswordButton_Click(object sender, EventArgs e)
         {
             forgotpasswordform.ShowDialog();
@@ -32,7 +32,6 @@ namespace RecordanceApp
 
         public void signinButton_Click(object sender, EventArgs e)
         {
-
             PublicData.usernameList = File.ReadAllLines(PublicData.usernameDB);
             PublicData.passwordList = File.ReadAllLines(PublicData.passwordDB);
             PublicData.fullnameList = File.ReadAllLines(PublicData.fullnameDB);
@@ -59,13 +58,15 @@ namespace RecordanceApp
             {
                 // If the index of the password list is similar to the index of the text found, then the password
                 // and username matches
-
                 PublicData.PublicUsername = PublicData.usernameList[PublicData.usernameIndex];
                 PublicData.PublicFullname = PublicData.fullnameList[PublicData.usernameIndex];
-               
-                MessageBox.Show("Public Fullname (SignInForm):" + PublicData.PublicFullname);
+
+                MessageBox.Show("Username List" + PublicData.usernameList[PublicData.usernameIndex]);
+                MessageBox.Show("Public Username (SignInForm):" + PublicData.PublicUsername);
+                MessageBox.Show("Public Un Index (SignInForm):" + PublicData.usernameIndex);
                 proceedToNavigationForm();
             }
+
             else if ((PublicData.passwordList[PublicData.usernameIndex] != passwordTextBox.Text) || (passwordTextBox.Text == "")
 )
             {
@@ -86,6 +87,11 @@ namespace RecordanceApp
         {
             this.Hide();
             navigationform.ShowDialog();
+        }
+
+        private void SignInForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
