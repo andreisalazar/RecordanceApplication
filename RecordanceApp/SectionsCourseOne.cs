@@ -96,7 +96,7 @@
             }
             else
             {
-                PublicData.PublicCourseOneSectionOne = sectionTwoCourseOneTextBox.Text.ToUpper();
+                PublicData.PublicCourseOneSectionTwo = sectionTwoCourseOneTextBox.Text.ToUpper();
                 addstudentsCourseOneSectionTwo.Show();
             }
         }

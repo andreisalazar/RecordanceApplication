@@ -23,7 +23,7 @@ namespace RecordanceApp
 
         private void GradeComputationCourseTwoSectionTwo_Load(object sender, EventArgs e)
         {
-            titleLabel.Text = PublicData.PublicCourseTwoSectionOne;
+            titleLabel.Text = PublicData.PublicCourseTwoSectionTwo;
             studentNameTextBox.ReadOnly = true;
             studentNumberTextBox.ReadOnly = true;
 
@@ -51,108 +51,108 @@ namespace RecordanceApp
             dataGridView1.DataSource = table;
             //Create a file if the file does not exist
             if (//Quiz One
-                !File.Exists(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-QuizOne-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt"))
+                !File.Exists(Path.Combine(PublicData.folder, PublicData.PublicUsername
+                + "-" + PublicData.PublicCourseNameTwo + "-QuizOne-" + PublicData.PublicCourseTwoSectionTwo + ".txt"))
                 //Quiz Two
-                && !File.Exists(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-QuizTwo-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt"))
+                && !File.Exists(Path.Combine(PublicData.folder, PublicData.PublicUsername
+                + "-" + PublicData.PublicCourseNameTwo + "-QuizTwo-" + PublicData.PublicCourseTwoSectionTwo + ".txt"))
                 //Quiz Three
-                && !File.Exists(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-QuizThree-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt"))
+                && !File.Exists(Path.Combine(PublicData.folder, PublicData.PublicUsername
+                + "-" + PublicData.PublicCourseNameTwo + "-QuizThree-" + PublicData.PublicCourseTwoSectionTwo + ".txt"))
                 //Quiz Average
-                && !File.Exists(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-QuizAverage-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt"))
+                && !File.Exists(Path.Combine(PublicData.folder, PublicData.PublicUsername
+                + "-" + PublicData.PublicCourseNameTwo + "-QuizAverage-" + PublicData.PublicCourseTwoSectionTwo + ".txt"))
                 //Act One
-                && !File.Exists(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-ActOne-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt"))
+                && !File.Exists(Path.Combine(PublicData.folder, PublicData.PublicUsername
+                + "-" + PublicData.PublicCourseNameTwo + "-ActOne-" + PublicData.PublicCourseTwoSectionTwo + ".txt"))
                 //Act Two
-                && !File.Exists(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-ActTwo-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt"))
+                && !File.Exists(Path.Combine(PublicData.folder, PublicData.PublicUsername
+                + "-" + PublicData.PublicCourseNameTwo + "-ActTwo-" + PublicData.PublicCourseTwoSectionTwo + ".txt"))
                 //Act Three
-                && !File.Exists(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-ActThree-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt"))
+                && !File.Exists(Path.Combine(PublicData.folder, PublicData.PublicUsername
+                + "-" + PublicData.PublicCourseNameTwo + "-ActThree-" + PublicData.PublicCourseTwoSectionTwo + ".txt"))
                 //Act Average
-                && !File.Exists(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-ActAverage-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt"))
+                && !File.Exists(Path.Combine(PublicData.folder, PublicData.PublicUsername
+                + "-" + PublicData.PublicCourseNameTwo + "-ActAverage-" + PublicData.PublicCourseTwoSectionTwo + ".txt"))
                 //Midterm Exam
-                && !File.Exists(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-Midterm-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt"))
+                && !File.Exists(Path.Combine(PublicData.folder, PublicData.PublicUsername
+                + "-" + PublicData.PublicCourseNameTwo + "-Midterm-" + PublicData.PublicCourseTwoSectionTwo + ".txt"))
                 //Final Exam
-                && !File.Exists(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-Finals-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt"))
+                && !File.Exists(Path.Combine(PublicData.folder, PublicData.PublicUsername
+                + "-" + PublicData.PublicCourseNameTwo + "-Finals-" + PublicData.PublicCourseTwoSectionTwo + ".txt"))
                 //Exam Average
-                && !File.Exists(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-ExamAverage-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt"))
+                && !File.Exists(Path.Combine(PublicData.folder, PublicData.PublicUsername
+                + "-" + PublicData.PublicCourseNameTwo + "-ExamAverage-" + PublicData.PublicCourseTwoSectionTwo + ".txt"))
                 //Present
-                && !File.Exists(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-Present-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt"))
+                && !File.Exists(Path.Combine(PublicData.folder, PublicData.PublicUsername
+                + "-" + PublicData.PublicCourseNameTwo + "-Present-" + PublicData.PublicCourseTwoSectionTwo + ".txt"))
                 //Absent
-                && !File.Exists(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-Absent-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt"))
+                && !File.Exists(Path.Combine(PublicData.folder, PublicData.PublicUsername
+                + "-" + PublicData.PublicCourseNameTwo + "-Absent-" + PublicData.PublicCourseTwoSectionTwo + ".txt"))
                 //Final Grade
-                && !File.Exists(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-FinalGrade-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt"))
+                && !File.Exists(Path.Combine(PublicData.folder, PublicData.PublicUsername
+                + "-" + PublicData.PublicCourseNameTwo + "-FinalGrade-" + PublicData.PublicCourseTwoSectionTwo + ".txt"))
                 //Final Grade In Letter
-                && !File.Exists(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-FinalGradeInLetter-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt"))
+                && !File.Exists(Path.Combine(PublicData.folder, PublicData.PublicUsername
+                + "-" + PublicData.PublicCourseNameTwo + "-FinalGradeInLetter-" + PublicData.PublicCourseTwoSectionTwo + ".txt"))
                 //Final Grade In Status
-                && !File.Exists(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-FinalGradeInStatus-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt"))
+                && !File.Exists(Path.Combine(PublicData.folder, PublicData.PublicUsername
+                + "-" + PublicData.PublicCourseNameTwo + "-FinalGradeInStatus-" + PublicData.PublicCourseTwoSectionTwo + ".txt"))
                 //Comments
-                && !File.Exists(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-Comments-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt"))
+                && !File.Exists(Path.Combine(PublicData.folder, PublicData.PublicUsername
+                + "-" + PublicData.PublicCourseNameTwo + "-Comments-" + PublicData.PublicCourseTwoSectionTwo + ".txt"))
                 )
             {
                 //Quiz One
-                var fileStreamOne = File.Create(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                    + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-QuizOne-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt"));
-                var fileStreamTwo = File.Create(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                    + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-QuizTwo-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt"));
+                var fileStreamOne = File.Create(Path.Combine(PublicData.folder, PublicData.PublicUsername
+                    + "-" + PublicData.PublicCourseNameTwo + "-QuizOne-" + PublicData.PublicCourseTwoSectionTwo + ".txt"));
+                var fileStreamTwo = File.Create(Path.Combine(PublicData.folder, PublicData.PublicUsername
+                    + "-" + PublicData.PublicCourseNameTwo + "-QuizTwo-" + PublicData.PublicCourseTwoSectionTwo + ".txt"));
                 //Quiz Three
-                var fileStreamThree = File.Create(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                    + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-QuizThree-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt"));
+                var fileStreamThree = File.Create(Path.Combine(PublicData.folder, PublicData.PublicUsername
+                    + "-" + PublicData.PublicCourseNameTwo + "-QuizThree-" + PublicData.PublicCourseTwoSectionTwo + ".txt"));
                 //Quiz Average
-                var fileStreamFour = File.Create(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                    + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-QuizAverage-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt"));
+                var fileStreamFour = File.Create(Path.Combine(PublicData.folder, PublicData.PublicUsername
+                    + "-" + PublicData.PublicCourseNameTwo + "-QuizAverage-" + PublicData.PublicCourseTwoSectionTwo + ".txt"));
                 //Act One
-                var fileStreamFive = File.Create(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                    + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-ActOne-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt"));
+                var fileStreamFive = File.Create(Path.Combine(PublicData.folder, PublicData.PublicUsername
+                    + "-" + PublicData.PublicCourseNameTwo + "-ActOne-" + PublicData.PublicCourseTwoSectionTwo + ".txt"));
                 //Act Two
-                var fileStreamSix = File.Create(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                    + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-ActTwo-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt"));
+                var fileStreamSix = File.Create(Path.Combine(PublicData.folder, PublicData.PublicUsername
+                    + "-" + PublicData.PublicCourseNameTwo + "-ActTwo-" + PublicData.PublicCourseTwoSectionTwo + ".txt"));
                 //Act Three
-                var fileStreamSeven = File.Create(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                    + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-ActThree-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt"));
+                var fileStreamSeven = File.Create(Path.Combine(PublicData.folder, PublicData.PublicUsername
+                    + "-" + PublicData.PublicCourseNameTwo + "-ActThree-" + PublicData.PublicCourseTwoSectionTwo + ".txt"));
                 //Act Average
-                var fileStreamEight = File.Create(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                    + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-ActAverage-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt"));
+                var fileStreamEight = File.Create(Path.Combine(PublicData.folder, PublicData.PublicUsername
+                    + "-" + PublicData.PublicCourseNameTwo + "-ActAverage-" + PublicData.PublicCourseTwoSectionTwo + ".txt"));
                 //Midterms
-                var fileStreamNine = File.Create(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                    + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-Midterm-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt"));
+                var fileStreamNine = File.Create(Path.Combine(PublicData.folder, PublicData.PublicUsername
+                    + "-" + PublicData.PublicCourseNameTwo + "-Midterm-" + PublicData.PublicCourseTwoSectionTwo + ".txt"));
                 //Finals
-                var fileStreamTen = File.Create(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                    + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-Finals-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt"));
+                var fileStreamTen = File.Create(Path.Combine(PublicData.folder, PublicData.PublicUsername
+                    + "-" + PublicData.PublicCourseNameTwo + "-Finals-" + PublicData.PublicCourseTwoSectionTwo + ".txt"));
                 //Exam Average
-                var fileStreamEleven = File.Create(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                    + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-ExamAverage-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt"));
+                var fileStreamEleven = File.Create(Path.Combine(PublicData.folder, PublicData.PublicUsername
+                    + "-" + PublicData.PublicCourseNameTwo + "-ExamAverage-" + PublicData.PublicCourseTwoSectionTwo + ".txt"));
                 //Present
-                var fileStreamTwelve = File.Create(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                    + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-Present-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt"));
+                var fileStreamTwelve = File.Create(Path.Combine(PublicData.folder, PublicData.PublicUsername
+                    + "-" + PublicData.PublicCourseNameTwo + "-Present-" + PublicData.PublicCourseTwoSectionTwo + ".txt"));
                 //Absent
-                var fileStreamThirteen = File.Create(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                    + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-Absent-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt"));
+                var fileStreamThirteen = File.Create(Path.Combine(PublicData.folder, PublicData.PublicUsername
+                    + "-" + PublicData.PublicCourseNameTwo + "-Absent-" + PublicData.PublicCourseTwoSectionTwo + ".txt"));
                 //Final Grade
-                var fileStreamFourteen = File.Create(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                    + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-FinalGrade-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt"));
+                var fileStreamFourteen = File.Create(Path.Combine(PublicData.folder, PublicData.PublicUsername
+                    + "-" + PublicData.PublicCourseNameTwo + "-FinalGrade-" + PublicData.PublicCourseTwoSectionTwo + ".txt"));
                 //Final Grade in Letter
-                var fileStreamFifteen = File.Create(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                    + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-FinalGradeInLetter-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt"));
+                var fileStreamFifteen = File.Create(Path.Combine(PublicData.folder, PublicData.PublicUsername
+                    + "-" + PublicData.PublicCourseNameTwo + "-FinalGradeInLetter-" + PublicData.PublicCourseTwoSectionTwo + ".txt"));
                 //Final Grade In Status
-                var fileStreamSixteen = File.Create(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                    + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-FinalGradeInStatus-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt"));
+                var fileStreamSixteen = File.Create(Path.Combine(PublicData.folder, PublicData.PublicUsername
+                    + "-" + PublicData.PublicCourseNameTwo + "-FinalGradeInStatus-" + PublicData.PublicCourseTwoSectionTwo + ".txt"));
                 //Comments
-                var fileStreamSeventeen = File.Create(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                    + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-Comments-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt"));
+                var fileStreamSeventeen = File.Create(Path.Combine(PublicData.folder, PublicData.PublicUsername
+                    + "-" + PublicData.PublicCourseNameTwo + "-Comments-" + PublicData.PublicCourseTwoSectionTwo + ".txt"));
 
                 //Assign the text files
                 PublicData.quizOneCourseTwoSectionTwo = fileStreamOne.Name;
@@ -196,46 +196,46 @@ namespace RecordanceApp
                 fileStreamSeventeen.Close();
             }
 
-            PublicData.quizOneCourseTwoSectionTwo = Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-               + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-QuizOne-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt");
-            PublicData.quizTwoCourseTwoSectionTwo = Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-QuizTwo-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt");
-            PublicData.quizThreeCourseTwoSectionTwo = Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-QuizThree-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt");
-            PublicData.quizAverageCourseTwoSectionTwo = Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-QuizAverage-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt");
+            PublicData.quizOneCourseTwoSectionTwo = Path.Combine(PublicData.folder, PublicData.PublicUsername
+               + "-" + PublicData.PublicCourseNameTwo + "-QuizOne-" + PublicData.PublicCourseTwoSectionTwo + ".txt");
+            PublicData.quizTwoCourseTwoSectionTwo = Path.Combine(PublicData.folder, PublicData.PublicUsername
+                + "-" + PublicData.PublicCourseNameTwo + "-QuizTwo-" + PublicData.PublicCourseTwoSectionTwo + ".txt");
+            PublicData.quizThreeCourseTwoSectionTwo = Path.Combine(PublicData.folder, PublicData.PublicUsername
+                + "-" + PublicData.PublicCourseNameTwo + "-QuizThree-" + PublicData.PublicCourseTwoSectionTwo + ".txt");
+            PublicData.quizAverageCourseTwoSectionTwo = Path.Combine(PublicData.folder, PublicData.PublicUsername
+                + "-" + PublicData.PublicCourseNameTwo + "-QuizAverage-" + PublicData.PublicCourseTwoSectionTwo + ".txt");
 
-            PublicData.activityOneCourseTwoSectionTwo = Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-ActOne-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt");
-            PublicData.activityTwoCourseTwoSectionTwo = Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-ActTwo-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt");
-            PublicData.activityThreeCourseTwoSectionTwo = Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-ActThree-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt");
-            PublicData.activityAverageCourseTwoSectionTwo = Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-ActAverage-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt");
+            PublicData.activityOneCourseTwoSectionTwo = Path.Combine(PublicData.folder, PublicData.PublicUsername
+                + "-" + PublicData.PublicCourseNameTwo + "-ActOne-" + PublicData.PublicCourseTwoSectionTwo + ".txt");
+            PublicData.activityTwoCourseTwoSectionTwo = Path.Combine(PublicData.folder, PublicData.PublicUsername
+                + "-" + PublicData.PublicCourseNameTwo + "-ActTwo-" + PublicData.PublicCourseTwoSectionTwo + ".txt");
+            PublicData.activityThreeCourseTwoSectionTwo = Path.Combine(PublicData.folder, PublicData.PublicUsername
+                + "-" + PublicData.PublicCourseNameTwo + "-ActThree-" + PublicData.PublicCourseTwoSectionTwo + ".txt");
+            PublicData.activityAverageCourseTwoSectionTwo = Path.Combine(PublicData.folder, PublicData.PublicUsername
+                + "-" + PublicData.PublicCourseNameTwo + "-ActAverage-" + PublicData.PublicCourseTwoSectionTwo + ".txt");
             //Midterms
 
-            PublicData.midtermExamCourseTwoSectionTwo = Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-Midterm-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt");
-            PublicData.finalExamCourseTwoSectionTwo = Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-Finals-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt");
-            PublicData.examAverageCourseTwoSectionTwo = Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-ExamAverage-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt");
+            PublicData.midtermExamCourseTwoSectionTwo = Path.Combine(PublicData.folder, PublicData.PublicUsername
+                + "-" + PublicData.PublicCourseNameTwo + "-Midterm-" + PublicData.PublicCourseTwoSectionTwo + ".txt");
+            PublicData.finalExamCourseTwoSectionTwo = Path.Combine(PublicData.folder, PublicData.PublicUsername
+                + "-" + PublicData.PublicCourseNameTwo + "-Finals-" + PublicData.PublicCourseTwoSectionTwo + ".txt");
+            PublicData.examAverageCourseTwoSectionTwo = Path.Combine(PublicData.folder, PublicData.PublicUsername
+                + "-" + PublicData.PublicCourseNameTwo + "-ExamAverage-" + PublicData.PublicCourseTwoSectionTwo + ".txt");
 
-            PublicData.presentCourseTwoSectionTwo = Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-Present-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt");
-            PublicData.absentCourseTwoSectionTwo = Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-Absent-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt");
+            PublicData.presentCourseTwoSectionTwo = Path.Combine(PublicData.folder, PublicData.PublicUsername
+                + "-" + PublicData.PublicCourseNameTwo + "-Present-" + PublicData.PublicCourseTwoSectionTwo + ".txt");
+            PublicData.absentCourseTwoSectionTwo = Path.Combine(PublicData.folder, PublicData.PublicUsername
+                + "-" + PublicData.PublicCourseNameTwo + "-Absent-" + PublicData.PublicCourseTwoSectionTwo + ".txt");
 
-            PublicData.finalGradeCourseTwoSectionTwo = Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-FinalGrade-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt");
-            PublicData.finalGradeInLetterCourseTwoSectionTwo = Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-FinalGradeInLetter-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt");
-            PublicData.finalGradeInStatusCourseTwoSectionTwo = Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-FinalGradeInStatus-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt");
+            PublicData.finalGradeCourseTwoSectionTwo = Path.Combine(PublicData.folder, PublicData.PublicUsername
+                + "-" + PublicData.PublicCourseNameTwo + "-FinalGrade-" + PublicData.PublicCourseTwoSectionTwo + ".txt");
+            PublicData.finalGradeInLetterCourseTwoSectionTwo = Path.Combine(PublicData.folder, PublicData.PublicUsername
+                + "-" + PublicData.PublicCourseNameTwo + "-FinalGradeInLetter-" + PublicData.PublicCourseTwoSectionTwo + ".txt");
+            PublicData.finalGradeInStatusCourseTwoSectionTwo = Path.Combine(PublicData.folder, PublicData.PublicUsername
+                + "-" + PublicData.PublicCourseNameTwo + "-FinalGradeInStatus-" + PublicData.PublicCourseTwoSectionTwo + ".txt");
 
-            PublicData.commentsCourseTwoSectionTwo = Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex]
-                + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-Comments-" + PublicData.courseTwoSectionTwoNameList[PublicData.usernameIndex] + ".txt");
+            PublicData.commentsCourseTwoSectionTwo = Path.Combine(PublicData.folder, PublicData.PublicUsername
+                + "-" + PublicData.PublicCourseNameTwo + "-Comments-" + PublicData.PublicCourseTwoSectionTwo + ".txt");
 
             loadStudentData();
         }

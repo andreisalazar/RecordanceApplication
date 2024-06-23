@@ -40,20 +40,14 @@ namespace RecordanceApp
             dataGridView1.DataSource = table;
 
 
-            if (!File.Exists(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex] + "-" + PublicData.courseNameOneList[PublicData.usernameIndex]
-                + PublicData.courseNameOneList[PublicData.usernameIndex] + "-Requirement Names" + ".txt"))
-
-                 && !File.Exists(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex] + "-" + PublicData.courseNameOneList[PublicData.usernameIndex]
-                 + "-Requirement Status" + ".txt"))
-                 && !File.Exists(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex] + "-" + PublicData.courseNameOneList[PublicData.usernameIndex] + "-Requirement Type" + ".txt")))
+            if (!File.Exists(Path.Combine(PublicData.folder, PublicData.PublicUsername + "-" + PublicData.PublicCourseNameOne + "-Requirement Names" + ".txt"))
+                 && !File.Exists(Path.Combine(PublicData.folder, PublicData.PublicUsername + "-" + PublicData.PublicCourseNameOne + "-Requirement Status" + ".txt"))
+                 && !File.Exists(Path.Combine(PublicData.folder, PublicData.PublicUsername + "-" + PublicData.PublicCourseNameOne + "-Requirement Type" + ".txt")))
             {
                 //Create the file
-                var fileStreamOne = File.Create(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex] + "-"
-               + PublicData.courseNameOneList[PublicData.usernameIndex] + "-Requirement Names" + ".txt"));
-                var fileStreamTwo = File.Create(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex] + "-" + PublicData.courseNameOneList[PublicData.usernameIndex]
-                + "-Requirement Status" + ".txt"));
-                var fileStreamThree = File.Create(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex] + "-" + PublicData.courseNameOneList[PublicData.usernameIndex]
-                    + "-Requirement Type" + ".txt"));
+                var fileStreamOne = File.Create(Path.Combine(PublicData.folder, PublicData.PublicUsername + "-" + PublicData.PublicCourseNameOne + "-Requirement Names" + ".txt"));
+                var fileStreamTwo = File.Create(Path.Combine(PublicData.folder, PublicData.PublicUsername + "-" + PublicData.PublicCourseNameOne + "-Requirement Status" + ".txt"));
+                var fileStreamThree = File.Create(Path.Combine(PublicData.folder, PublicData.PublicUsername + "-" + PublicData.PublicCourseNameOne + "-Requirement Type" + ".txt"));
 
                 PublicData.courseOneRequirementNameDB = fileStreamOne.Name;
                 PublicData.courseOneReqStatusDB = fileStreamTwo.Name;
@@ -66,12 +60,9 @@ namespace RecordanceApp
 
             }
             //Assign Public Variables
-            PublicData.courseOneRequirementNameDB = Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex] + "-"
-               + PublicData.courseNameOneList[PublicData.usernameIndex] + "-Requirement Names" + ".txt");
-            PublicData.courseOneReqStatusDB = Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex] + "-" + PublicData.courseNameOneList[PublicData.usernameIndex]
-                + "-Requirement Status" + ".txt");
-            PublicData.courseOneReqTypeDB = Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex] + "-" + PublicData.courseNameOneList[PublicData.usernameIndex]
-                    + "-Requirement Type" + ".txt");
+            PublicData.courseOneRequirementNameDB = Path.Combine(PublicData.folder, PublicData.PublicUsername + "-" + PublicData.PublicCourseNameOne + "-Requirement Names" + ".txt");
+            PublicData.courseOneReqStatusDB = Path.Combine(PublicData.folder, PublicData.PublicUsername + "-" + PublicData.PublicCourseNameOne + "-Requirement Status" + ".txt");
+            PublicData.courseOneReqTypeDB = Path.Combine(PublicData.folder, PublicData.PublicUsername + "-" + PublicData.PublicCourseNameOne + "-Requirement Type" + ".txt");
 
 
             //Load the Requirement Data

@@ -27,7 +27,7 @@ namespace RecordanceApp
         private void CourseOneSyllabusForm_Load(object sender, EventArgs e)
         {
             //Display the Title
-            PublicData.PublicCourseNameOne = PublicData.courseNameOneList[PublicData.usernameIndex];
+          
             titleLabel.Text = "Syllabus-" + PublicData.PublicCourseNameOne;
 
             //Add Columns to the table
@@ -41,14 +41,14 @@ namespace RecordanceApp
             dataGridView1.DataSource = table;
 
             //Check if the file exists
-            if (!File.Exists(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex] + "-SyllabusNames-" +
-                PublicData.courseNameOneList[PublicData.usernameIndex] + ".txt"))
-                && !File.Exists(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex] + "-SyllabusDetails-" + PublicData.courseNameOneList[PublicData.usernameIndex] + ".txt")))
+            if (!File.Exists(Path.Combine(PublicData.folder, PublicData.PublicUsername + "-SyllabusNames-" +
+                PublicData.PublicCourseNameOne + ".txt"))
+                && !File.Exists(Path.Combine(PublicData.folder, PublicData.PublicUsername + "-SyllabusDetails-" + PublicData.PublicCourseNameOne + ".txt")))
             {
                 //Create the file
-                var fileStreamOne = File.Create(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex] + "-SyllabusNames-" +
-                PublicData.courseNameOneList[PublicData.usernameIndex] + ".txt"));
-                var fileStreamTwo = File.Create(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex] + "-SyllabusDetails-" + PublicData.courseNameOneList[PublicData.usernameIndex] + ".txt"));
+                var fileStreamOne = File.Create(Path.Combine(PublicData.folder, PublicData.PublicUsername + "-SyllabusNames-" +
+                PublicData.PublicCourseNameOne + ".txt"));
+                var fileStreamTwo = File.Create(Path.Combine(PublicData.folder, PublicData.PublicUsername + "-SyllabusDetails-" + PublicData.PublicCourseNameOne + ".txt"));
 
                 //Assign it to the public variables
                 PublicData.courseOneSyllabusNames = fileStreamOne.Name;
@@ -60,9 +60,8 @@ namespace RecordanceApp
 
             }
 
-            PublicData.courseOneSyllabusNames = Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex] + "-SyllabusNames-" +
-                PublicData.courseNameOneList[PublicData.usernameIndex] + ".txt");
-            PublicData.courseOneSyllabusDetails = Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex] + "-SyllabusDetails-" + PublicData.courseNameOneList[PublicData.usernameIndex] + ".txt");
+            PublicData.courseOneSyllabusNames = Path.Combine(PublicData.folder, PublicData.PublicUsername + "-SyllabusNames-" + PublicData.PublicCourseNameOne + ".txt");
+            PublicData.courseOneSyllabusDetails = Path.Combine(PublicData.folder, PublicData.PublicUsername + "-SyllabusDetails-" + PublicData.PublicCourseNameOne + ".txt");
             //Load the files
             loadTopicData();
         }

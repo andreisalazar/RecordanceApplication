@@ -44,11 +44,11 @@ namespace RecordanceApp
             dataGridView1.ReadOnly = true;
 
             //Create a text file if the text file does not exist
-            if (!File.Exists(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex] + "-Student Names-" + PublicData.courseOneSectionOneTextFiles[PublicData.usernameIndex]))
-                && !File.Exists(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex] + "-Student Number-" + PublicData.courseOneSectionOneTextFiles[PublicData.usernameIndex])))
+            if (!File.Exists(Path.Combine(PublicData.folder, PublicData.PublicUsername + "-Student Names-" + PublicData.PublicCourseNameOne + "-"+ PublicData.PublicCourseOneSectionOne + ".txt" ))
+                && !File.Exists(Path.Combine(PublicData.folder, PublicData.PublicUsername + "-Student Number-" + PublicData.PublicCourseNameOne + "-" + PublicData.PublicCourseOneSectionOne + ".txt")))
             {
-                var fileStreamOne = File.Create(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex] + "-Student Names-" + PublicData.courseOneSectionOneTextFiles[PublicData.usernameIndex]));
-                var fileStreamTwo = File.Create(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex] + "-Student Number-" + PublicData.courseOneSectionOneTextFiles[PublicData.usernameIndex]));
+                var fileStreamOne = File.Create(Path.Combine(PublicData.folder, PublicData.PublicUsername + "-Student Names-" + PublicData.PublicCourseNameOne + "-" + PublicData.PublicCourseOneSectionOne + ".txt"));
+                var fileStreamTwo = File.Create(Path.Combine(PublicData.folder, PublicData.PublicUsername + "-Student Number-" + PublicData.PublicCourseNameOne + "-" + PublicData.PublicCourseOneSectionOne + ".txt"));
 
                 PublicData.studentNamesListCourseOneSectionOneDB = fileStreamOne.Name;
                 PublicData.studentNumberListCourseOneSectionOneDB = fileStreamTwo.Name;
@@ -56,9 +56,10 @@ namespace RecordanceApp
                 fileStreamOne.Close();
                 fileStreamTwo.Close();
             }
+            
             //Assign the public variables with the datas
-            PublicData.studentNamesListCourseOneSectionOneDB = Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex] + "-Student Names-" + PublicData.courseOneSectionOneTextFiles[PublicData.usernameIndex]);
-            PublicData.studentNumberListCourseOneSectionOneDB = Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex] + "-Student Number-" + PublicData.courseOneSectionOneTextFiles[PublicData.usernameIndex]);
+            PublicData.studentNamesListCourseOneSectionOneDB = Path.Combine(PublicData.folder, PublicData.PublicUsername + "-Student Names-" + PublicData.PublicCourseNameOne + "-" + PublicData.PublicCourseOneSectionOne + ".txt");
+            PublicData.studentNumberListCourseOneSectionOneDB = Path.Combine(PublicData.folder, PublicData.PublicUsername + "-Student Number-" + PublicData.PublicCourseNameOne + "-" + PublicData.PublicCourseOneSectionOne + ".txt");
 
             //Load Data
             loadDataFromFiles();

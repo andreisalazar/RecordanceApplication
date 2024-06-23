@@ -37,16 +37,14 @@ namespace RecordanceApp
             dataGridView1.DataSource = table;
 
             //Check if the file exists
-            if (!File.Exists(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex] + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-Requirement Names" + ".txt"))
-                && !File.Exists(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex] + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-Requirement Type" + ".txt"))
-                && !File.Exists(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex] + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex]
-                + "-Requirement Status" + ".txt")))
+            if (!File.Exists(Path.Combine(PublicData.folder, PublicData.PublicUsername + "-" + PublicData.PublicCourseNameTwo + "-Requirement Names" + ".txt"))
+                && !File.Exists(Path.Combine(PublicData.folder, PublicData.PublicUsername + "-" + PublicData.PublicCourseNameTwo + "-Requirement Type" + ".txt"))
+                && !File.Exists(Path.Combine(PublicData.folder, PublicData.PublicUsername + "-" + PublicData.PublicCourseNameTwo + "-Requirement Status" + ".txt")))
             {
                 //Create the files
-                var fileStreamOne = File.Create((Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex] + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-Requirement Names" + ".txt")));
-                var fileStreamTwo = File.Create(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex] + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-Requirement Type" + ".txt"));
-                var fileStreamThree = File.Create(Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex] + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex]
-                + "-Requirement Status" + ".txt"));
+                var fileStreamOne = File.Create((Path.Combine(PublicData.folder, PublicData.PublicUsername + "-" + PublicData.PublicCourseNameTwo + "-Requirement Names" + ".txt")));
+                var fileStreamTwo = File.Create(Path.Combine(PublicData.folder, PublicData.PublicUsername + "-" + PublicData.PublicCourseNameTwo + "-Requirement Type" + ".txt"));
+                var fileStreamThree = File.Create(Path.Combine(PublicData.folder, PublicData.PublicUsername + "-" + PublicData.PublicCourseNameTwo + "-Requirement Status" + ".txt"));
 
                 //Assign the Public Variables
                 PublicData.courseTwoRequirementNameDB = fileStreamOne.Name;
@@ -59,9 +57,9 @@ namespace RecordanceApp
             }
 
             //Assign the Public Variables
-            PublicData.courseTwoRequirementNameDB = Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex] + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-Requirement Names" + ".txt");
-            PublicData.courseTwoReqStatusDB = Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex] + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-Requirement Type" + ".txt");
-            PublicData.courseTwoReqTypeDB = Path.Combine(PublicData.folder, PublicData.usernameList[PublicData.usernameIndex] + "-" + PublicData.courseNameTwoList[PublicData.usernameIndex] + "-Requirement Status" + ".txt");
+            PublicData.courseTwoRequirementNameDB = Path.Combine(PublicData.folder, PublicData.PublicUsername + "-" + PublicData.PublicCourseNameTwo + "-Requirement Names" + ".txt");
+            PublicData.courseTwoReqStatusDB = Path.Combine(PublicData.folder, PublicData.PublicUsername + "-" + PublicData.PublicCourseNameTwo + "-Requirement Type" + ".txt");
+            PublicData.courseTwoReqTypeDB = Path.Combine(PublicData.folder, PublicData.PublicUsername + "-" + PublicData.PublicCourseNameTwo + "-Requirement Status" + ".txt");
 
             loadRequirementData();
 
